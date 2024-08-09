@@ -1,0 +1,178 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --leonardo-blue: #0f83d7;
+  --michelangelo-orange: #ffa500;
+  --donatello-purple: #b71cc6;
+  --raphael-red: #d5440c;
+  --turtle-green: #68ba0a;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  text-shadow: 5px 1px 0px var(--leonardo-blue);
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+#characters-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.selected-label {
+  width: 66px;
+  height: 24px;
+  visibility: hidden;
+  position: relative;
+  border: 3px solid var(--turtle-green);
+  background-color: var(--donatello-purple);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & span {
+    animation: font-size-animation 1s infinite ease-in-out;
+    font-size: 1rem;
+    text-anchor: middle;
+    vertical-align: top;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-width: 15px;
+    border-style: solid;
+    border-color: var(--turtle-green) transparent transparent;
+  }
+}
+
+@keyframes font-size-animation {
+  0% {
+    font-size: 1rem;
+  }
+  100% {
+    font-size: 1.5rem;
+  }
+}
+
+.selected .selected-label {
+  visibility: visible;
+}
+
+#leonardo button {
+  background-image: url('Leonardo/tile000.png');
+  &::before {
+    background: var(--leonardo-blue);
+  }
+}
+#leonardo.selected button {
+  background-image: url('Leonardo/tile001.png');
+  &::before {
+    content: '';
+  }
+}
+
+#donatello button {
+  background-image: url('Donatello/tile000.png');
+  &::before {
+    background: var(--donatello-purple);
+  }
+}
+#donatello.selected button {
+  background-image: url('Donatello/tile001.png');
+  &::before {
+    content: '';
+  }
+}
+
+#michaelangelo button {
+  background-image: url('Michelangelo/tile000.png');
+  &::before {
+    background: var(--michelangelo-orange);
+  }
+}
+#michaelangelo.selected button {
+  background-image: url('Michelangelo/tile001.png');
+  &::before {
+    content: '';
+  }
+}
+
+#raphael button {
+  background-image: url('Raphael/tile000.png');
+  &::before {
+    background: var(--raphael-red);
+  }
+}
+#raphael.selected button {
+  background-image: url('Raphael/tile001.png');
+  &::before {
+    content: '';
+  }
+}
+
+.character-card button {
+  position: relative;
+  height: 130px;
+  width: 72px;
+  background-color: transparent;
+  border: none;
+  cursor: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: none;
+    position: absolute;
+    z-index: -1;
+    width: 50%;
+    height: 100%;
+    transform: skewX(-15deg);
+  }
+}
+
+.character-card button:focus,
+button:focus-visible {
+  outline: none;
+}
