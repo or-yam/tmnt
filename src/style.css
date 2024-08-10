@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Press Start 2P', Inter, system-ui, Avenir;
+  font-weight: 400;
+  font-style: normal;
+
   line-height: 1.5;
   font-weight: 400;
 
@@ -51,7 +56,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 0.2rem;
 }
 
 .selected-label {
@@ -176,3 +181,61 @@ img {
 button:focus-visible {
   outline: none;
 }
+
+/* .players-container {
+  width: 100%;
+}
+
+.player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border: white solid 6px;
+  border-radius: 5px;
+  outline: #0f83d7 solid 3px;
+  outline-offset: -7px;
+}
+.lives-meter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+
+  & span {
+    border: none;
+    display: block;
+    width: 10px;
+    height: 40px;
+    background-color: #0f83d7;
+  }
+
+  & span:nth-child(2) {
+    background-color: #2a91db;
+  }
+
+  & span:nth-child(3) {
+    background-color: #449fe0;
+  }
+  & span:nth-child(4) {
+    background-color: #5face4;
+  }
+  & span:nth-child(5) {
+    background-color: #7abae9;
+  }
+  & span:nth-child(6) {
+    background-color: #94c8ed;
+  }
+  & span:nth-child(7) {
+    background-color: #afd6f2;
+  }
+  & span:nth-child(8) {
+    background-color: #cae3f6;
+  }
+  & span:nth-child(9) {
+    background-color: #e4f1fb;
+  }
+  & span:nth-child(10) {
+    background-color: #ffffff;
+  }
+} */
