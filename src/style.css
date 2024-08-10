@@ -151,8 +151,8 @@ img {
 
 .character-card button {
   position: relative;
-  height: 130px;
-  width: 72px;
+  aspect-ratio: 72 / 130;
+  width: 12vw;
   background-color: transparent;
   border: none;
   cursor: none;
