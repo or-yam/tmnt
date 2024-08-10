@@ -103,52 +103,52 @@ img {
 }
 
 #leonardo button {
-  background-image: url('Leonardo/tile000.png');
+  background-image: url('../Leonardo/tile000.png');
   &::before {
     background: var(--leonardo-blue);
   }
 }
 #leonardo.selected button {
-  background-image: url('Leonardo/tile001.png');
+  background-image: url('../Leonardo/tile001.png');
   &::before {
     content: '';
   }
 }
 
 #donatello button {
-  background-image: url('Donatello/tile000.png');
+  background-image: url('../Donatello/tile000.png');
   &::before {
     background: var(--donatello-purple);
   }
 }
 #donatello.selected button {
-  background-image: url('Donatello/tile001.png');
+  background-image: url('../Donatello/tile001.png');
   &::before {
     content: '';
   }
 }
 
 #michaelangelo button {
-  background-image: url('Michelangelo/tile000.png');
+  background-image: url('../Michelangelo/tile000.png');
   &::before {
     background: var(--michelangelo-orange);
   }
 }
 #michaelangelo.selected button {
-  background-image: url('Michelangelo/tile001.png');
+  background-image: url('../Michelangelo/tile001.png');
   &::before {
     content: '';
   }
 }
 
 #raphael button {
-  background-image: url('Raphael/tile000.png');
+  background-image: url('../Raphael/tile000.png');
   &::before {
     background: var(--raphael-red);
   }
 }
 #raphael.selected button {
-  background-image: url('Raphael/tile001.png');
+  background-image: url('../Raphael/tile001.png');
   &::before {
     content: '';
   }
