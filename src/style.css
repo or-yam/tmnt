@@ -16,6 +16,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --background-black: #242424;
   --leonardo-blue: #0f83d7;
   --michelangelo-orange: #ffa500;
   --donatello-purple: #b71cc6;
@@ -191,60 +192,44 @@ button:focus-visible {
   outline: none;
 }
 
-/* .players-container {
-  width: 100%;
+.selected-turtle {
+  width: 14rem;
+}
+/*
+.players-container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }
 
 .player {
+  padding: 0.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 50%;
   border: white solid 6px;
   border-radius: 5px;
   outline: #0f83d7 solid 3px;
   outline-offset: -7px;
-}
-.lives-meter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
+  text-shadow: 2px 1px 0px var(--leonardo-blue);
 
-  & span {
-    border: none;
-    display: block;
-    width: 10px;
+  & .lives-meter {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2px;
+    width: 100px;
     height: 40px;
-    background-color: #0f83d7;
-  }
+    background-image: linear-gradient(to right, var(--leonardo-blue), #fff);
 
-  & span:nth-child(2) {
-    background-color: #2a91db;
-  }
-
-  & span:nth-child(3) {
-    background-color: #449fe0;
-  }
-  & span:nth-child(4) {
-    background-color: #5face4;
-  }
-  & span:nth-child(5) {
-    background-color: #7abae9;
-  }
-  & span:nth-child(6) {
-    background-color: #94c8ed;
-  }
-  & span:nth-child(7) {
-    background-color: #afd6f2;
-  }
-  & span:nth-child(8) {
-    background-color: #cae3f6;
-  }
-  & span:nth-child(9) {
-    background-color: #e4f1fb;
-  }
-  & span:nth-child(10) {
-    background-color: #ffffff;
+    & span {
+      border: none;
+      display: block;
+      width: 3px;
+      height: 40px;
+      background-color: var(--background-black);
+      z-index: 2;
+    }
   }
 } */

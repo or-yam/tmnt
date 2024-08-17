@@ -2,15 +2,22 @@ import { audioInit } from './audio';
 import { gamepadInit, checkGamepads } from './gamepad';
 import './style.css';
 
-const turtles = document.querySelectorAll('.character-card');
+const COLORS = [
+  'var(--leonardo-blue)',
+  'var(--michelangelo-orange)',
+  'var(--donatello-purple)',
+  'var(--raphael-red)'
+] as const;
+const NAMES = ['Leonardo', 'Michelangelo', 'Donatello', 'Raphael'] as const;
 
-const colors = ['var(--leonardo-blue)', 'var(--michelangelo-orange)', 'var(--donatello-purple)', 'var(--raphael-red)'];
+const appContainer = document.getElementById('app') as HTMLDivElement;
+const turtles = document.querySelectorAll('.character-card');
 
 let currentTurtleIndex = 0;
 
 gamepadInit();
 
-const { playBackgroundMusic, playSelectSound } = audioInit();
+const { playBackgroundMusic, playSelectSound, playCowabunga, stopBackgroundMusic } = audioInit();
 
 const moveRight = () => {
   playBackgroundMusic();
@@ -18,7 +25,7 @@ const moveRight = () => {
   turtles.item(currentTurtleIndex).classList.remove('selected');
   currentTurtleIndex = currentTurtleIndex >= turtles.length - 1 ? 0 : currentTurtleIndex + 1;
   turtles.item(currentTurtleIndex).classList.add('selected');
-  document.body.style.setProperty('--selected-color', colors[currentTurtleIndex]);
+  document.body.style.setProperty('--selected-color', COLORS[currentTurtleIndex]);
   return;
 };
 
@@ -28,8 +35,19 @@ const moveLeft = () => {
   turtles.item(currentTurtleIndex).classList.remove('selected');
   currentTurtleIndex = currentTurtleIndex <= 0 ? turtles.length - 1 : currentTurtleIndex - 1;
   turtles.item(currentTurtleIndex).classList.add('selected');
-  document.body.style.setProperty('--selected-color', colors[currentTurtleIndex]);
+  document.body.style.setProperty('--selected-color', COLORS[currentTurtleIndex]);
   return;
+};
+
+const selectTurtle = () => {
+  stopBackgroundMusic();
+  playCowabunga();
+
+  appContainer.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = `${NAMES[currentTurtleIndex]}/tile003.png`;
+  img.className = 'selected-turtle';
+  appContainer.append(img);
 };
 
 window.addEventListener('keydown', (event) => {
@@ -40,6 +58,14 @@ window.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft') {
     moveLeft();
   }
+
+  if (event.key === 'Enter' || event.key === ' ') {
+    selectTurtle();
+  }
+
+  if (event.key === 'Escape') {
+    window.location.reload();
+  }
 });
 
-checkGamepads(moveRight, moveLeft, console.log);
+checkGamepads(moveRight, moveLeft, selectTurtle);
