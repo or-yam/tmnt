@@ -11,6 +11,8 @@ export const audioInit = () => {
   };
 
   const playSelectSound = () => {
+    selectSound.pause();
+    selectSound.currentTime = 0;
     selectSound.play();
   };
 
